@@ -45,6 +45,43 @@ This project uses the **PAD-UFES-20** dataset, which includes dermatoscopic imag
 
 > 📌 **Note**: Please ensure that your use of this dataset complies with its [license and usage terms](https://www.sciencedirect.com/science/article/pii/S2352340920310209).
 
+## 🗂️ Dataset Structure
+
+- **Images**: Stored in the following directories:
+  - `images/imgs_part_1/`
+  - `images/imgs_part_2/`
+  - `images/imgs_part_3/`
+
+- **Metadata**: Contained in `metadata.csv`, which includes fields such as:
+  - `age`
+  - `gender`
+  - `lesion_location`
+  - `clinical_symptoms` (e.g., itching, bleeding, evolution, etc.)
+
+  ## ⚙️ Configuring File Paths
+
+Before running the project, update the following variables in `Grok_Final.py` to reflect the location of your dataset:
+
+- `DATASET_PATH`: Root directory of the dataset (e.g., `/path/to/your/dataset`)
+- `CSV_PATH`: Path to `metadata.csv` (e.g., `/path/to/your/dataset/metadata.csv`)
+- `IMAGE_DIRS`: List of image directory paths  
+  (e.g., `[/path/to/imgs_part_1, /path/to/imgs_part_2, /path/to/imgs_part_3]`)
+- `CHECKPOINT_DIR`: Directory for model checkpoints (e.g., `/path/to/your/Checkpoints`)
+
+### 🧪 Example Modification in `PAD_Final_pr.ipynb`
+
+```python
+DATASET_PATH = "/path/to/your/dataset"
+CSV_PATH = os.path.join(DATASET_PATH, "metadata.csv")
+IMAGE_DIRS = [
+    os.path.join(DATASET_PATH, "images/imgs_part_1"),
+    os.path.join(DATASET_PATH, "images/imgs_part_2"),
+    os.path.join(DATASET_PATH, "images/imgs_part_3")
+]
+CHECKPOINT_DIR = "/path/to/your/Checkpoints"
+📌 Tip: Use os.path.join for compatibility across different operating systems.
+
+
 
 
 
