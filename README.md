@@ -109,6 +109,120 @@ pip install -r requirements.txt
 3. Download the PAD-UFES-20 dataset and place it in your desired directory. Update the DATASET_PATH, CSV_PATH, and IMAGE_DIRS variables in Grok_Final.py accordingly.
 
 4. Download the model checkpoints from the Google Drive link and place them in the Checkpoints directory. Update CHECKPOINT_DIR in Grok_Final.py to match the storage location.
+## 🎯 Usage
+
+The single file `Grok_Final.py` contains all the core functionality for:
+
+- Training the model
+- Evaluating model performance
+- Making single-image predictions
+
+Below are instructions for each of these tasks.
+## 🏋️‍♂️ Training
+
+To train the model, run the following command:
+
+```bash
+python PAD_final_pr.py
+```
+This will:
+> - Load and preprocess the dataset.
+
+> - Perform 5-fold cross-validation training.
+
+> - Save checkpoints to CHECKPOINT_DIR (e.g., best_model_foldX.pt).
+> ⚠️ **Note:** Training requires a CUDA-enabled GPU (e.g., NVIDIA A100 recommended).  
+> If you are using a different GPU, you may need to adjust the following variables in `PAD_final_pr.py`:  
+> - `BATCH_SIZE` (default: 16)  
+> - `GRAD_ACCUM_STEPS` (default: 2)
+## 📊 Evaluation
+
+To evaluate the model on the test set, ensure the `evaluate_test_set` function is called.Yea but it is already called in the code
+
+You can either:
+
+- Modify `PAD_final_pr.py` to run evaluation directly, or  
+- Import and call the function from the script.
+
+### Look For this in code:
+
+```python
+best_fold = evaluate_test_set(test_df)
+```
+This evaluation process will:
+
+- Load the best model for each fold from `CHECKPOINT_DIR`.
+- Compute test accuracy, weighted F1-score, and class-wise performance metrics.
+- Print classification reports to the console.
+- Save confusion matrices as plots in the `results/plots/` directory.
+
+---
+
+### ⚙️ How to run evaluation:
+
+- Comment out or skip the training section in `PAD_final_pr.py`.
+- Ensure the test dataset is properly prepared and loaded.
+- Run the script to execute evaluation.
+
+## 🔍 Single Image Prediction
+
+To predict the class of a single image along with clinical metadata, use the `predict_single_image` function.
+
+### Example usage (from the end of `PAD_final_pr.py`):
+
+```python
+image_path = "/path/to/your/image.jpg"
+metadata = {
+    'age': 0.5,               # Normalized value
+    'gender': 'M',
+    'fitspatrick': 3,
+    'region': 'chest',
+    'diameter_1': 0.2,        # Normalized value
+    'diameter_2': 0.3,        # Normalized value
+    'itch': False,
+    'grew': True,
+    'hurt': False,
+    'changed': True,
+    'bleed': False,
+    'smoke': False,
+    'drink': False,
+    'pesticide': False,
+    'skin_cancer_history': False
+}
+best_fold_num = 4            # Best fold (0–4)
+test_accuracy = 0.9592       # Accuracy of the best fold
+
+pred_class, probs, report = predict_single_image(image_path, metadata, best_fold_num, test_accuracy)
+```
+This function returns:
+
+> - pred_class: Predicted class label
+
+> - probs: Prediction probabilities for each class
+
+> - report: Detailed diagnostic report
+
+## 📂 Project Structure
+```bash
+SkinCancerMultimodal/
+├── PAD_final_pr.py           # Main script with all functionality
+├── requirements.txt        # Dependencies
+├── Checkpoints/            # Directory for model checkpoints
+│   ├── best_model_fold0.pt
+│   ├── best_model_fold1.pt
+│   └── ...
+├── data/                   # Directory for dataset (user-defined)
+│   ├── metadata.csv
+│   ├── images/
+│   │   ├── imgs_part_1/
+│   │   ├── imgs_part_2/
+│   │   └── imgs_part_3/
+├── results/                # Directory for output reports and visualizations
+│   ├── diagnosis_report_foldX.txt
+│   └── plots/
+├── README.md               # This file
+```
+
 
 
 
