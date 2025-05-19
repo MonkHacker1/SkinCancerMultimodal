@@ -88,6 +88,31 @@ Pre-trained models and training checkpoints are available for download via the f
 
 [Download Models and Checkpoints](https://drive.google.com/drive/folders/1-0pTs4pAeASSRVHxwIscvp31C_LGI2IY?usp=drive_link)
 
+## 💾 Checkpoint Usage
+
+1. Download the checkpoint files and place them in the `Checkpoints/` directory specified by the `CHECKPOINT_DIR` variable.
+
+2. The checkpoint files follow the naming convention:
+
+## 🚀 Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/MonkHacker1/SkinCancerMultimodal.git
+cd SkinCancerMultimodal
+```
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+3. Download the PAD-UFES-20 dataset and place it in your desired directory. Update the DATASET_PATH, CSV_PATH, and IMAGE_DIRS variables in Grok_Final.py accordingly.
+
+4. Download the model checkpoints from the Google Drive link and place them in the Checkpoints directory. Update CHECKPOINT_DIR in Grok_Final.py to match the storage location.
+
+
+
+
 
 
 
