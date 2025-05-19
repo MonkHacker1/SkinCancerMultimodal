@@ -28,14 +28,14 @@ seaborn>=0.11.0
 scikit-learn>=0.24.0  
 Pillow>=8.3.0  
 tqdm>=4.60.0
-
+```bash
 ## 🚀 Installation
 
 Install the dependencies using the following command:
 
 ```bash
 pip install -r requirements.txt
-
+```bash
 ## 📁 Dataset
 
 This project uses the **PAD-UFES-20** dataset, which includes dermatoscopic images and clinical metadata for skin lesion classification.
