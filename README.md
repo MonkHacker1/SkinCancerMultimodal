@@ -79,7 +79,15 @@ IMAGE_DIRS = [
     os.path.join(DATASET_PATH, "images/imgs_part_3")
 ]
 CHECKPOINT_DIR = "/path/to/your/Checkpoints"
+```
 📌 Tip: Use os.path.join for compatibility across different operating systems.
+
+## 🧠 Models and Checkpoints
+
+Pre-trained models and training checkpoints are available for download via the following Google Drive link:
+
+[Download Models and Checkpoints](https://drive.google.com/drive/folders/1-0pTs4pAeASSRVHxwIscvp31C_LGI2IY?usp=drive_link)
+
 
 
 
