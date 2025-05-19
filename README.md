@@ -131,7 +131,7 @@ This will:
 > - Perform 5-fold cross-validation training.
 
 > - Save checkpoints to CHECKPOINT_DIR (e.g., best_model_foldX.pt).
-> ⚠️ **Note:** Training requires a CUDA-enabled GPU (e.g., NVIDIA A100 recommended).  
+> - ⚠️ **Note:** Training requires a CUDA-enabled GPU (e.g., NVIDIA A100 recommended).  
 > If you are using a different GPU, you may need to adjust the following variables in `PAD_final_pr.py`:  
 > - `BATCH_SIZE` (default: 16)  
 > - `GRAD_ACCUM_STEPS` (default: 2)
@@ -222,6 +222,47 @@ SkinCancerMultimodal/
 │   └── plots/
 ├── README.md               # This file
 ```
+
+## 📈 Results
+
+The model achieves the following performance on the test set (1200 samples, balanced across classes):
+
+### Best Fold (Fold 5):
+
+- **Test Accuracy:** 95.92%
+- **Weighted F1-Score:** 95.90%
+
+### Class-wise Performance (Fold 5):
+```bash
+| Class | Precision | Recall | F1-Score |
+|-------|-----------|--------|----------|
+| BCC   | 94%       | 93%    | 93%      |
+| SCC   | 98%       | 100%   | 99%      |
+| MEL   | 98%       | 100%   | 99%      |
+| ACK   | 93%       | 94%    | 94%      |
+| NEV   | 95%       | 95%    | 95%      |
+| SEK   | 98%       | 93%    | 95%      |
+```
+
+Confusion matrices and performance plots are generated during evaluation and saved in the `results/plots/` directory.
+## 🤝 Contributing
+
+Contributions are welcome!  
+
+If you find any bugs, want to request features, or improve the documentation, please feel free to:
+
+- Open an issue  
+- Submit a pull request  
+
+Thank you for helping improve this project!
+
+## 📄 License
+
+This project is licensed under the MIT License. See the (LICENSE) file for details.
+
+## 📬 Contact
+
+For questions or support, please open an issue on this repository or contact me at [aamirhussainwani1412@gmail.com](mailto:aamirhussainwani1412@gmail.com).
 
 
 
