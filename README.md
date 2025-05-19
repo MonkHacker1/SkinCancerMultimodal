@@ -40,8 +40,8 @@ pip install -r requirements.txt
 
 This project uses the **PAD-UFES-20** dataset, which includes dermatoscopic images and clinical metadata for skin lesion classification.
 
-- The dataset is publicly available here: [PAD-UFES-20 Dataset](https://www.sciencedirect.com/science/article/pii/S2352340920310209)
-- For convenience, the dataset has been included in the `Dataset/` folder of this repository.
+- The dataset is publicly available here: [PAD-UFES-20 Dataset](https://data.mendeley.com/datasets/zr7vgbcyr2/1)
+  
 
 > 📌 **Note**: Please ensure that your use of this dataset complies with its [license and usage terms](https://www.sciencedirect.com/science/article/pii/S2352340920310209).
 
