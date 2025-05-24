@@ -111,7 +111,7 @@ pip install -r requirements.txt
 4. Download the model checkpoints from the Google Drive link and place them in the Checkpoints directory. Update CHECKPOINT_DIR in Grok_Final.py to match the storage location.
 ## 🎯 Usage
 
-The single file `Grok_Final.py` contains all the core functionality for:
+
 
 - Training the model
 - Evaluating model performance
